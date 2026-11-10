@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheq-Us | Discover. Research. Grow.</title>
+  <meta name="description" content="Cheq-Us: explore companies, discover careers and find job opportunities.">
+  <meta name="theme-color" content="#153866">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" data-page="home" aria-label="Cheq-Us home">
+      <span class="brand-icon">⌕</span>
+      <span><strong>Cheq-Us</strong><small>Discover. Research. Grow.</small></span>
+    </a>
+    <button id="notificationShortcut" class="icon-button" aria-label="Open notifications">♧ <span id="alertDot" class="dot"></span></button>
+  </header>
+
+  <main>
+    <section id="homePage" class="page active">
+      <section class="hero">
+        <p class="eyebrow">YOUR NEXT OPPORTUNITY STARTS HERE</p>
+        <h1>What would you like to <span>check?</span></h1>
+        <p>Explore companies, discover careers, and find opportunities in one place.</p>
+        <form id="searchForm" class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="globalSearch" type="search" placeholder="Search a company, store, career or job..." autocomplete="off">
+          <button type="submit">Search</button>
+        </form>
+        <div class="quick-links">
+          <button data-page="companies">🏢 Companies</button>
+          <button data-page="careers">🎓 Careers</button>
+          <button data-page="jobs">💼 Jobs</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><div><p class="eyebrow">START EXPLORING</p><h2>Explore Cheq-Us</h2></div></div>
+        <div class="feature-grid">
+          <button class="feature-card" data-page="companies"><span class="feature-icon blue">▦</span><strong>Check a company</strong><span>Learn about businesses, leadership, history and vacancies.</span><b>Explore companies →</b></button>
+          <button class="feature-card" data-page="careers"><span class="feature-icon purple">✧</span><strong>Discover careers</strong><span>Understand career paths, skills and qualifications.</span><b>Explore careers →</b></button>
+          <button class="feature-card" data-page="jobs"><span class="feature-icon orange">↗</span><strong>Find opportunities</strong><span>Browse example jobs and see their requirements.</span><b>Browse jobs →</b></button>
+          <button class="feature-card" data-page="alerts"><span class="feature-icon green">♧</span><strong>Get job alerts</strong><span>Set your preferences for the opportunities you want.</span><b>Manage alerts →</b></button>
+        </div>
+      </section>
+      <section class="section callout">
+        <div><p class="eyebrow">YOUR OPPORTUNITY, YOUR WAY</p><h2>Don't just look for a job. Know what it takes.</h2><p>Check requirements, save opportunities, and explore your next step.</p></div>
+        <button class="primary-button" data-page="jobs">Explore opportunities</button>
+      </section>
+
+    </section>
+
+    <section id="companiesPage" class="page">
+      <div class="page-heading"><p class="eyebrow">COMPANY DIRECTORY</p><h1>Explore companies</h1><p>Find out what companies do and explore their example openings.</p></div>
+      <div class="toolbar"><input id="companySearch" type="search" placeholder="Search companies or industries..."></div>
+      <div id="companyList" class="card-list"></div>
+    </section>
+
+    <section id="profilePage" class="page">
+      <button class="back-button" data-page="companies">← Back to companies</button>
+      <div id="companyProfile"></div>
+    </section>
+
+    <section id="careersPage" class="page">
+      <div class="page-heading"><p class="eyebrow">PLAN YOUR FUTURE</p><h1>Career explorer</h1><p>Explore what different careers involve and what you may need to get started.</p></div>
+      <div class="toolbar"><input id="careerSearch" type="search" placeholder="Search careers..."></div>
+      <div id="careerList" class="feature-grid"></div>
+      <div id="careerDetails" class="details-panel hidden"></div>
+    </section>
+
+    <section id="jobsPage" class="page">
+      <div class="page-heading"><p class="eyebrow">OPPORTUNITIES</p><h1>Find jobs</h1><p>Explore example vacancies. Check the official advert before applying.</p></div>
+      <div class="toolbar job-toolbar">
+        <input id="jobSearch" type="search" placeholder="Search job title, company or location...">
+        <select id="jobFilter" aria-label="Filter jobs by category">
+          <option value="All jobs">All categories</option>
+          <option value="General work">General work</option>
+          <option value="Retail">Retail</option>
+          <option value="Engineering & IT">Engineering & IT</option>
+          <option value="Internship">Internships</option>
+        </select>
+      </div>
+      <p class="demo-note">Demo only: these are fictional example listings, not live vacancies.</p>
+      <div id="jobList" class="card-list"></div>
+    </section>
+
+    <section id="alertsPage" class="page">
+      <div class="page-heading"><p class="eyebrow">STAY INFORMED</p><h1>Job alerts</h1><p>Choose what you want Cheq-Us to look for in this demo.</p></div>
+      <div class="details-panel">
+        <div class="toggle-row"><div><h3>Enable job alerts</h3><p>Turn your alert preference on or off.</p></div><label class="switch"><input type="checkbox" id="alertsEnabled" checked><span class="slider"></span></label></div>
+        <hr>
+        <h3>Job categories</h3>
+        <div class="check-grid">
+          <label><input type="checkbox" name="category" value="General work" checked> General work</label>
+          <label><input type="checkbox" name="category" value="Retail" checked> Retail</label>
+          <label><input type="checkbox" name="category" value="Engineering & IT" checked> Engineering & IT</label>
+          <label><input type="checkbox" name="category" value="Internship" checked> Internships & learnerships</label>
+        </div>
+        <label class="field-label" for="alertLocation">Preferred location</label>
+        <select id="alertLocation"><option>Anywhere in South Africa</option><option>Johannesburg and nearby</option><option>Anywhere in Gauteng</option><option>Pretoria and nearby</option></select>
+        <label class="field-label" for="alertFrequency">How often?</label>
+        <select id="alertFrequency"><option>As soon as a job is posted</option><option>Daily summary</option><option>Weekly summary</option></select>
+        <button id="saveAlertSettings" class="primary-button">Save alert preferences</button>
+        <p id="alertStatus" class="status-message" role="status">Alerts are enabled in this demo.</p>
+      </div>
+      <div class="section">
+        <div class="section-heading"><div><p class="eyebrow">TRY IT</p><h2>Recent job alerts</h2></div></div>
+        <button id="simulateAlert" class="primary-button">Simulate a new job alert</button>
+        <div id="recentAlerts" class="card-list" style="margin-top:16px"></div>
+      </div>
+    </section>
+
+    <section id="savedPage" class="page">
+      <div class="page-heading"><p class="eyebrow">YOUR SHORTLIST</p><h1>Saved items</h1><p>Companies and jobs you have bookmarked on this device.</p></div>
+      <div id="savedList" class="card-list"></div>
+    </section>
+
+    <section id="searchPage" class="page">
+      <div class="page-heading"><p class="eyebrow">SEARCH CHEQ-US</p><h1>Search results</h1><p id="searchSummary"></p></div>
+      <div class="tabs"><button class="tab active" data-search-tab="companies">Companies</button><button class="tab" data-search-tab="jobs">Jobs</button><button class="tab" data-search-tab="careers">Careers</button></div>
+      <div id="searchResults" class="card-list"></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Main navigation">
+    <button class="nav-item active" data-page="home"><span>⌂</span>Home</button>
+    <button class="nav-item" data-page="companies"><span>▦</span>Companies</button>
+    <button class="nav-item" data-page="careers"><span>✧</span>Careers</button>
+    <button class="nav-item" data-page="jobs"><span>↗</span>Jobs</button>
+    <button class="nav-item" data-page="alerts"><span>♧</span>Alerts</button>
+  </nav>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
